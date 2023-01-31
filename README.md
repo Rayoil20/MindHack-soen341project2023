@@ -7,7 +7,7 @@
 2-Team members (with username)
 
 Lara Louka       ()
-Michel Kandalaft ()
+Michel Kandalaft (Mikeyy6)
 Sophie Hajjar    (sophiehajjar)
 Carlo Costa      ()
 Rahul Patel      ()
