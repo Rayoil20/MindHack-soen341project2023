@@ -7,7 +7,7 @@ The goal of this project is to design a carreer service program that lets the st
 
 2-Team members (with username)
 
-Lara Louka       ()
+Lara Louka       (laraxl)
 Michel Kandalaft (Mikeyy6)
 Sophie Hajjar    (sophiehajjar)
 Carlo Costa      ()
