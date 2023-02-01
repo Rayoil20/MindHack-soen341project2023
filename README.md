@@ -10,6 +10,6 @@ The goal of this project is to design a carreer service program that lets the st
 Lara Louka       (laraxl)
 Michel Kandalaft (Mikeyy6)
 Sophie Hajjar    (sophiehajjar)
-Carlo Costa      ()
+Carlo Costa      (carlocostacc)
 Rahul Patel      ()
 Ryan Kattoura    (Rayoil20)
