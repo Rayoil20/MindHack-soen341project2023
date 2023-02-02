@@ -23,31 +23,31 @@ User Story
 Student/Candidate
  
 User can input: 
-•	Name
-•	contact information
-•	email address
-•	Relevant work experience (description, duration, tasks)
-•	and option to upload CV 
+- Name
+-	Contact information
+-	Email address
+-	Relevant work experience (description, duration, tasks)
+- And option to upload CV 
 
 User can filter jobs by: 
-•	types of jobs
-•	location
-•	salary
-•	employment duration
+- Types of jobs
+-	Location
+-	Salary
+-	Employment duration
 
 When a submission has been completed, user should get an email confirming that the application has been submitted.
 
 Employer
 
-•	User can create an account and insert relevant information.
-•	User will be able to post available positions for jobs. 
-•	When a submission is received, it will be sorted into two categories, students or candidates.
-•	Option to confirm or deny a job application (sends an email back out to recipient).
+-	User can create an account and insert relevant information.
+-	User will be able to post available positions for jobs. 
+-	When a submission is received, it will be sorted into two categories, students or candidates.
+-	Option to confirm or deny a job application (sends an email back out to recipient).
  
 Admin
 
-•	User has access to all job postings and user profiles.
-•	User can check if any issues have been submitted by both parties regarding the functionality of the website.
-•	User might need access to update and enhance the website or increase security for suspected or actual breaches to the platform.
+-	User has access to all job postings and user profiles.
+-	User can check if any issues have been submitted by both parties regarding the functionality of the website.
+-	User might need access to update and enhance the website or increase security for suspected or actual breaches to the platform.
 
 
