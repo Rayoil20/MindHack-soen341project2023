@@ -1,12 +1,12 @@
 # MindHack-soen341project2
 
-**1) Description of the project**
+# **1) Description of the project**
 
 The goal of this project is to design a carreer service program that lets the students create an account and apply for positions by uploading and editing their portfolios. The students should also be able to search for different job offers. The employers should then be able to have login access to track the portfolios that the students have been uploading; as well as adding new openings and selecting the candidates that qualifies and schedule an interview. Finally, the admin should be able to manage all the portfolios recieved as well as managing the multiple job postings. 
 
 
 
-**2) Team members (with username)**
+# **2) Team members (with username)**
 
 - Lara Louka       (laraxl)          - Backend
 - Michel Kandalaft (Mikeyy6)         - Frontend
@@ -16,7 +16,7 @@ The goal of this project is to design a carreer service program that lets the st
 - Ryan Kattoura    (Rayoil20)        - Frontend
 
 
-**3) Project Approach and Technology**
+# **3) Project Approach and Technology**
 
 Languages:
 - React
@@ -26,7 +26,7 @@ Languages:
 
 User Story
 
-Student/Candidate
+### Student/Candidate:
  
 User can input: 
 - Name
@@ -43,14 +43,14 @@ User can filter jobs by:
 
 When a submission has been completed, user should get an email confirming that the application has been submitted.
 
-Employer
+### Employer:
 
 -	User can create an account and insert relevant information.
 -	User will be able to post available positions for jobs. 
 -	When a submission is received, it will be sorted into two categories, students or candidates.
 -	Option to confirm or deny a job application (sends an email back out to recipient).
  
-Admin
+### Admin:
 
 -	User has access to all job postings and user profiles.
 -	User can check if any issues have been submitted by both parties regarding the functionality of the website.
