@@ -23,6 +23,6 @@ Languages:
 - HTML
 - CSS
 - Javascript
--MySQL
+- MySQL
 
 
