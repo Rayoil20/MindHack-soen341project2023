@@ -10,7 +10,7 @@ The goal of this project is to design a carreer service program that lets the st
 
 - Lara Louka       (laraxl)          - Backend
 - Michel Kandalaft (Mikeyy6)         - Frontend
-- Sophie Hajjar    (sophiehajjar)    - Backend
+- Sophie Hajjar    (sophiehajjar)    - Back end
 - Carlo Costa      (carlocostacc)    - Frontend
 - Rahul Patel      (TheObliviouSoul) - Frontend
 - Ryan Kattoura    (Rayoil20)        - Frontend
