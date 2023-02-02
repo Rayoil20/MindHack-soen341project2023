@@ -6,7 +6,7 @@ The goal of this project is to design a carreer service program that lets the st
 
 
 
-# **2) Team members (with username)*
+# **2) Team members (with username)**
 
 - Lara Louka       (laraxl)          - Backend
 - Michel Kandalaft (Mikeyy6)         - Frontend
