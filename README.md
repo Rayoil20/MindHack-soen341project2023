@@ -22,11 +22,11 @@ User Story
 Student/Candidate
  
 User can input: 
-•	Name.
-•	contact information.
-•	email address.
-•	Relevant work experience (description, duration, tasks).
-•	and option to upload CV. 
+•	Name
+•	contact information
+•	email address
+•	Relevant work experience (description, duration, tasks)
+•	and option to upload CV 
 
 User can filter jobs by: 
 •	types of jobs
