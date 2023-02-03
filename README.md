@@ -8,12 +8,12 @@ The goal of this project is to design a carreer service program that lets the st
 
 ## **2) Team members (with username)**
 
-- Lara Louka       (laraxl)          - Backend
+- Lara Louka       (laraxl)          - Back and Front end
 - Michel Kandalaft (Mikeyy6)         - Frontend
-- Sophie Hajjar    (sophiehajjar)    - Back end
+- Sophie Hajjar    (sophiehajjar)    - Back and Front end
 - Carlo Costa      (carlocostacc)    - Frontend
 - Rahul Patel      (TheObliviouSoul) - Frontend
-- Ryan Kattoura    (Rayoil20)        - Frontend
+- Ryan Kattoura    (Rayoil20)        - Back and Front end
 
 
 ## **3) Project Approach and Technology**
@@ -24,5 +24,7 @@ Languages:
 - CSS
 - Javascript
 - MySQL
+- Firebase
+- Json
 
 
