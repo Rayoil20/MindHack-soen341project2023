@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Design by foolishdeveloper.com -->
+    <title>Welcome Page</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <!--Stylesheet-->
+</head>
+
+<style>
+    body {
+        background-color: #080710;
+    }
+
+    
+    main{
+        overflow: hidden;
+        position: fixed;
+    }
+
+    .sidebar {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #080710;
+        overflow-x: hidden;
+        padding-top: 60px;
+        transition: 0.5s;
+        background-color: rgba(0,0,0,0.5)!important;
+        
+    }
+
+    .sidebar a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 18px;
+        display: block;
+        transition: 0.3s;
+        font-family: 'Poppins', sans-serif;
+        color: whitesmoke;
+    }
+
+    .sidebar a:hover {
+        color: #f1f1f1;
+    }
+
+    .sidebar .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+
+    .openbtn {
+        margin: auto;
+        text-align: center;
+        border-radius: 12px;
+        border-width: 5px;
+        backdrop-filter: blur(10px);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 0 40px rgba(8,7,16,0.6);
+        font-family: 'Poppins', sans-serif;
+        color: whitesmoke;
+        background-color: #080710;
+        padding: -5px 5px;
+        width: 200px;
+        height: 50px; 
+        letter-spacing: 0.5px;
+        outline: none;
+        border: none;
+        font-size: 18px;
+        background-color: rgba(255,255,255,0.13)!important;
+    }
+
+    .openbtn:hover {
+        box-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+    }
+
+    #main {
+        transition: margin-left .5s;
+        padding: 20px;
+    }
+
+    @media screen and (max-height: 450px) {
+        .sidebar {
+            padding-top: 15px;
+        }
+
+        .sidebar a {
+            font-size: 18px;
+        }
+    }
+
+    input{
+        margin: auto;
+        text-align: left;
+        padding-left: 20px;
+        border-radius: 12px;
+        border-width: 5px;
+        backdrop-filter: blur(10px);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 0 40px rgba(8,7,16,0.6);
+        font-family: 'Poppins', sans-serif;
+        color: whitesmoke;
+        background-color: #080710;
+        padding: -5px 5px;
+        width: 900px;
+        height: 50px; 
+        letter-spacing: 0.5px;
+        outline: none;
+        border: none;
+        font-size: 18px;
+        background-color: rgba(255,255,255,0.13)!important;
+        position:static;
+
+    }
+    input:hover{
+        box-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+    }
+
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2);
+        color: whitesmoke;
+        width: 85%;
+        max-height: 65%;
+        margin: auto;
+        text-align: center;
+        border-radius: 10px;
+        border-width: 5px;
+        border-color: whitesmoke;
+        padding: 10px;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 50%;
+        backdrop-filter: blur(10px);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+        background-color: rgba(255, 255, 255, 0.13) !important;
+        padding: 50px 35px;
+        font-family: 'Poppins', sans-serif;
+        color: #ffffff;
+        letter-spacing: 0.5px;
+        outline: none;
+        border: none;
+        overflow:scroll;
+    }
+    .card1 {
+        border: none;
+        outline: 0;
+        display: inline-block;
+        padding-top: 1px;
+        color: whitesmoke;
+        background-color: rgba(255, 255, 255, 0.27) !important;;
+        text-align: left;
+        cursor: pointer;
+        width: 95%;
+        height: 150px;
+        font-size: 18px;
+        border-radius: 3px;
+        background-color: #ffffff;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        margin: 5px;
+        padding-top: 24px;
+        padding-left: 36px;
+    }
+    button {
+        border: none;
+        outline: 0;
+        display: inline-block;
+        padding-top: 1px;
+        color: #080710;
+        background-color: whitesmoke;
+        text-align: center;
+        cursor: pointer;
+        width: 150px;
+        height: 40px;
+        font-size: 18px;
+        border-radius: 3px;
+        background-color: #ffffff;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+
+    }
+    .button1{
+        border: none;
+        outline: 0;
+        display: inline-block;
+        padding-top: 1px;
+        color: #080710;
+        background-color: whitesmoke;
+        text-align: center;
+        cursor: pointer;
+        width: 150px;
+        height: 40px;
+        font-size: 18px;
+        border-radius: 3px;
+        background-color: #ffffff;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        position: absolute;
+        right: 100px;
+    }
+</style>
+
+<body>
+    
+
+    <div id="mySideBar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="welcome_page.html">Find Jobs</a>
+        <a href="student_profile.html">Profile</a>
+        <a href="report_bug.html">Report bug(s)</a>
+        <a href="help.html">Help</a>
+        <a href="#">Log out</a>
+    </div>
+
+    <div id="main">
+        <button class="openbtn" onclick="openNav()">&#9776 Mind Hack</button>
+        <input type="text" placeholder="Search..">
+
+
+    </div>
+
+    <div class="card">
+        <div class="card1" >
+            <h>Software Engineer Intern<br></h>
+            <p1>Summer and Fall semester<br></p1>
+            <p2>Knowledge in C++ and Java<br></p2>
+            <button class="button1">View details</button>
+        </div>
+        <div class="card1">
+            <h>Computer Engineer Intern<br></h>
+            <p1>Summer and Fall semester<br></p1>
+            <p2>Knowledge in C# and Arduino<br></p2>
+            <button class="button1">View details</button>
+        </div>
+        <div class="card1">
+            <h>Mechanical Engineer Intern<br></h>
+            <p1>Summer and Fall semester<br></p1>
+            <p2>Knowledge in handjobs and busses<br></p2>
+            <button class="button1">View details</button>
+        </div>
+        <div class="card1" >
+            <h>Software Engineer Intern<br></h>
+            <p1>Summer and Fall semester<br></p1>
+            <p2>Knowledge in C++ and Java<br></p2>
+            <button class="button1">View details</button>
+        </div>
+        <div class="card1">
+            <h>Computer Engineer Intern<br></h>
+            <p1>Summer and Fall semester<br></p1>
+            <p2>Knowledge in C# and Arduino<br></p2>
+            <button class="button1">View details</button>
+        </div>
+        <div class="card1">
+            <h>Mechanical Engineer Intern<br></h>
+            <p1>Summer and Fall semester<br></p1>
+            <p2>Knowledge in handjobs and busses<br></p2>
+            <button class="button1">View details</button>
+        </div>
+    </div>
+
+    <script>
+        function openNav() {
+            document.getElementById("mySideBar").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySideBar").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+        }
+    </script>
+</body>
+
+</html>
