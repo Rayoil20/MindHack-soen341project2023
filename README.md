@@ -23,8 +23,7 @@ Languages:
 - HTML
 - CSS
 - Javascript
-- MySQL
-- Firebase
-- Json
+- Next
+- Atlas
 
 
