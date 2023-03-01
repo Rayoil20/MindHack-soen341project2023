@@ -26,6 +26,7 @@ export default function Navbar()  {
                     <Button color="inherit"> <NavLink to={"/job"}>New job </NavLink></Button>
                     <Button color="inherit"> <NavLink to={"/"}>Home page </NavLink></Button>
                     <Button color="inherit"> <NavLink to={"/login"}>Login</NavLink></Button>
+                    <Button color="inherit"> <NavLink to={"/profile"}>Profile</NavLink></Button>
 
 
                 </Toolbar>
