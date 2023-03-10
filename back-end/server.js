@@ -1,3 +1,8 @@
+
+
+// REFER TO SYSADMIN CARLO FOR ACCESS TO THE DB 
+// CREDENTIALS NEED TO BE ADDED TO THE .env file 
+
 const express = require("express");
 const app = express();
 const cors = require("cors");
