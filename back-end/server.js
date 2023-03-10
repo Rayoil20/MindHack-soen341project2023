@@ -1,3 +1,7 @@
+
+// CONTACT SYSADMIN CARLO FOR THE SERVER CONNECTION CREDENTIALS
+// DONT FORGET TOO CHANGE YOUR .env file
+
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
