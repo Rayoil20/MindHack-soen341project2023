@@ -7,6 +7,7 @@
 /.pnp
 /back-end/.env
 .pnp.js
+/front-end/MindHack/package.json
 
 # testing
 /coverage
