@@ -5,6 +5,7 @@
 /front-end/MindHack/node_modules
 /back-end/node_modules
 /.pnp
+/back-end/.env
 .pnp.js
 
 # testing
