@@ -4,32 +4,17 @@
 
 const express = require("express");
 const cors = require("cors");
-const mongoose = require("mongoose");
-const morgan = require("morgan");
 require("dotenv").config();
-
-
+const bodyParser = require('body-parser')
 
 // app
 const app = express();
 
-// db
-console.log(process.env.ATLAS_URI)
-mongoose.connect(process.env.ATLAS_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-.then(() => console.log("connection successful"))
-.catch((err) => console.log("connection failed", err));
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
 
-// middlewares
-app.use(morgan("dev"));
-app.use(cors({origin:true, credentials: true}));
-
-
-// routes
-const testRoutes = require("./routes/record");
-app.use("/", testRoutes);
+const authenticate = require("./routes/authenticate")
+app.use("/authenticate", authenticate);
 
 // port
 const port = process.env.PORT || 5000;
