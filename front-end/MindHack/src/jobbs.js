@@ -4,7 +4,7 @@ import JobOffer from "./components/JobOffer";
 
 
 import Search from './components/search';
-//
+
 // export default function Jobs(props) {
 //
 //     return (
@@ -67,8 +67,6 @@ const posts  = [
     { id: '2', name: 'Software Engineering Intern' },
     { id: '3', name: 'Computer Engineering Intern' },
     { id: '4', name: 'Computer Engineering Intern' },
-
-
 
 ];
 

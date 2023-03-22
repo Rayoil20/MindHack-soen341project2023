@@ -5,7 +5,7 @@ import {Route, Routes} from "react-router-dom";
 import {dividerClasses} from "@mui/material";
 import Navbar from "./components/Navbar";
 import Jobs from "./jobs";
-import Homepage from "./homepage";
+import Homepage from "./jobs";
 
 function App() {
   
