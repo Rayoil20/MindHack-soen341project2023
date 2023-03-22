@@ -90,21 +90,19 @@ export default function Employer_Post() {
                 <Grid item xs={12} style={{height:"50"}}>
                     <TextField
                         required
-                        id="address1"
-                        name="address1"
-                        label="Address line 1"
+                        id="Job Description"
+                        name="Job Description"
+                        label="Job Description"
                         fullWidth
-                        autoComplete="shipping address-line1"
+                        autoComplete="job-description"
                         variant="standard"
                     />
                 </Grid>
-                <Grid item xs={12}>
-                    <FormControlLabel
-                        control={<Checkbox color="secondary" name="saveAddress" value="yes" />}
-                        label="Use this address for payment details"
-                    />
-                </Grid>
             </Grid>
+            <div>
+                <button style = {{width: "200px", height: "100px", }}
+                    type="button">Post Job</button>
+            </div>
         </React.Fragment>
     );
 }
