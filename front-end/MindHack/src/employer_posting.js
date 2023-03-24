@@ -1,108 +1,70 @@
-import * as React from 'react';
-import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
-import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
+import './jobs.css'; // import the stylesheet
+import React, { useState } from 'react';
 
-export default function Employer_Post() {
+function employer_posting({ onPost }) {
+    const [jobTitle, setJobTitle] = useState('');
+    const [jobDescription, setJobDescription] = useState('');
+    const [jobLocation, setJobLocation] = useState('');
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const newJob = {
+            id: Date.now(),
+            title: jobTitle,
+            description: jobDescription,
+            location: jobLocation,
+        };
+        onPost(newJob);
+        setJobTitle('');
+        setJobDescription('');
+        setJobLocation('');
+    };
+    const handlepost = (event) => {
+        event.preventDefault();
+        const newJob = {
+            id: Math.random(),
+            title: jobTitle,
+            description: jobDescription,
+            location: jobLocation,
+        };
+        onPost(newJob);
+        setJobTitle('');
+        setJobDescription('');
+        setJobLocation('');
+    };
     return (
-        <React.Fragment>
-            <Typography variant="h6" gutterBottom>
-                Job Offer Creation
-            </Typography>
-            <Grid container spacing={3}>
-                <Grid item xs={12} sm={6}>
-                    <TextField
-                        required
-                        id="Job Title"
-                        name="Job Title"
-                        label="Job Title"
-                        fullWidth
-                        autoComplete="job-title"
-                        variant="standard"
+        <div className="posting-box">
+            <form onSubmit={handleSubmit}>
+                <div>
+                    <label htmlFor="title">Job Title:</label>
+                    <input
+                        type="text"
+                        id="title"
+                        value={jobTitle}
+                        onChange={(event) => setJobTitle(event.target.value)}
                     />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                    <TextField
-                        required
-                        id="Company"
-                        name="Company"
-                        label="Company"
-                        fullWidth
-                        autoComplete="company"
-                        variant="standard"
+                </div>
+                <div>
+                    <label htmlFor="description">Job Description:</label>
+                    <textarea
+                        id="description"
+                        value={jobDescription}
+                        onChange={(event) => setJobDescription(event.target.value)}
+                    ></textarea>
+                </div>
+                <div>
+                    <label htmlFor="location">Job Location:</label>
+                    <input
+                        type="text"
+                        id="location"
+                        value={jobLocation}
+                        onChange={(event) => setJobLocation(event.target.value)}
                     />
-                </Grid>
-
-                <Grid item xs={12} sm={6}>
-                    <TextField
-                        id="Work Arrangement"
-                        name="Work Arrangement"
-                        label="Work Arrangement"
-                        fullWidth
-                        autoComplete="Work-Arrangement"
-                        variant="standard"
-                    />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                    <TextField
-                        required
-                        id="Location"
-                        name="Location"
-                        label="Location"
-                        fullWidth
-                        autoComplete="location"
-                        variant="standard"
-                    />
-                </Grid>
-                <Grid item xs={12} sm={4}>
-                    <TextField
-                        id="FullTime/PartTime"
-                        name="FullTime/PartTime"
-                        label="Full Time / Part Time"
-                        fullWidth
-                        variant="standard"
-                    />
-                </Grid>
-                <Grid item xs={12} sm={4}>
-                    <TextField
-                        required
-                        id="Compensation"
-                        name="Compensation"
-                        label="Compensation"
-                        fullWidth
-                        autoComplete="compensation"
-                        variant="standard"
-                    />
-                </Grid>
-                <Grid item xs={12} sm={4}>
-                    <TextField
-                        required
-                        id="Required Skills"
-                        name="Required Skills"
-                        label="Required Skills"
-                        fullWidth
-                        autoComplete="shipping country"
-                        variant="standard"
-                    />
-                </Grid>
-                <Grid item xs={12} style={{height:"50"}}>
-                    <TextField
-                        required
-                        id="Job Description"
-                        name="Job Description"
-                        label="Job Description"
-                        fullWidth
-                        autoComplete="job-description"
-                        variant="standard"
-                    />
-                </Grid>
-            </Grid>
-            <div>
-                <button style = {{width: "200px", height: "100px", }}
-                    type="button">Post Job</button>
-            </div>
-        </React.Fragment>
+                </div>
+                <button type="submit">Post Job</button>
+            </form>
+        </div>
     );
 }
+
+export default employer_posting;
