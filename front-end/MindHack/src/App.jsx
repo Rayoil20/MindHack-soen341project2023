@@ -6,6 +6,7 @@ import {dividerClasses} from "@mui/material";
 import Navbar from "./components/Navbar";
 import Jobs from "./jobs";
 import Homepage from "./homepage";
+import Edit_Profile from "./edit_profile";
 
 function App() {
   
@@ -18,6 +19,7 @@ function App() {
            <Route path='/' element={<Homepage/>}/>
            <Route path='/profile' element={<Profile/>}/>
            <Route path='/job' element={<Jobs/>}/>
+           <Route path='/edit_profile' element={<Edit_Profile/>}/>
        </Routes>
       </div>
   );
