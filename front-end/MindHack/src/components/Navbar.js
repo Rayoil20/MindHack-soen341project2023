@@ -23,11 +23,12 @@ export default function Navbar()  {
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                         Mind Hack
                     </Typography>
-                    <Button color="inherit"> <NavLink to={"/"}>Homepage </NavLink></Button>
-                    <Button color="inherit"> <NavLink to={"/jobbs"}>New job </NavLink></Button>
+                    <Button color="inherit"> <NavLink to={"/homepage"}>Homepage </NavLink></Button>
+                    <Button color="inherit"> <NavLink to={"/jobs"}>New job </NavLink></Button>
                     <Button color="inherit"> <NavLink to={"/login"}>Login</NavLink></Button>
                     <Button color="inherit"> <NavLink to={"/profile"}>Profile</NavLink></Button>
-
+                    <Button color="inherit"> <NavLink to={"/employer_post"}>Employee post</NavLink></Button>
+                    {/*<Button color="inherit"> <NavLink to={"/Appp"}>Appp</NavLink></Button>*/}
 
                 </Toolbar>
             </AppBar>
