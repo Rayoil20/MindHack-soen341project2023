@@ -11,22 +11,23 @@ export default function Upload(){
         setCv(file);
     };
 
+
     const uploadCV = async (e) =>{
         e.preventDefault();
-        console.log("ON A CLICKE SUR LE BOUTON");
-
         if (cv){
-
             const formData = new FormData();
 
             formData.append("data", cv);
-            const options = {
-                method : "POST",
-                body : formData,
-                headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin':'*'}
-            }
-            const url = "localhost:5000/upload/cv";
-            await fetch(url,options);
+            formData.append("userId",  "64190716a8d179925f113685"); //Put the user id here from the cookie
+
+            const url = "http://localhost:5000/upload/cv";
+
+            await fetch(url, {
+                    method: 'POST',
+                    headers: {'Access-Control-Allow-Origin':'*'},
+                    body: formData,
+                }
+            );
         }
     }
 
@@ -45,9 +46,7 @@ export default function Upload(){
                     onChange={handleFileChange}
                 />
             </Button>
-
             <Button onClick={uploadCV}>Send</Button>
-
         </div>
     )
 }

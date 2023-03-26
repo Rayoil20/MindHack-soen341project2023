@@ -39,7 +39,7 @@ router.post("/login", async function (req,res,next){
     const user = await db.collection("user").findOne({"email": email, "password" : password});
 
     if (user){
-        const token = jwt.sign({  "email": email, "password" : password}, process.env.JWT_ACCESS_KEY);
+        const token = jwt.sign({"email": email, "password" : password}, process.env.JWT_ACCESS_KEY);
         res.send({token: token}).json;
         return;
     }
@@ -50,7 +50,6 @@ router.post("/login", async function (req,res,next){
 
 //Post request function to authenticate a user
 router.post("/register", async function (req,res,next){
-
     //Variables to get from the request
     const email = req.body.email;
     const name = req.body.name;

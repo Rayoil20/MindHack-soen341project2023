@@ -4,17 +4,23 @@
 
 const express = require("express");
 const cors = require("cors");
-require("dotenv").config();
 const bodyParser = require('body-parser')
+require("dotenv").config();
 
 // app
 const app = express();
 
+app.use(cors({
+    origin: '*'
+}));
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
-const authenticate = require("./routes/authenticate")
+const authenticate = require("./routes/authenticate");
+const upload = require("./routes/upload");
+
 app.use("/authenticate", authenticate);
+app.use("/upload", upload);
 
 // port
 const port = process.env.PORT || 5000;

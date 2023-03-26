@@ -1,24 +1,30 @@
-import aws from "aws-sdk";
-import process from "process";
 const { MongoClient, ObjectId} = require("mongodb");
 const express = require('express');
 const res = require("express/lib/response");
 const router = express.Router();
-import crypto from "crypto";
-
+const aws = require("aws-sdk");
+const crypto = require("crypto");
+const multer = require("multer");
 const client = new MongoClient("mongodb+srv://MindHack:MindHack123$@cluster0.sdwjjsx.mongodb.net/test");
 
+const storage = multer.memoryStorage()
+const upload = multer({ storage: storage })
 
-router.post("/cv", async function (req,res,next){
+router.post("/cv", upload.single("data"),async function (req,res,next){
+
 
     const db = client.db("MindHack");
 
-    const userId = "64190716a8d179925f113685";
+    console.log(req.file);
 
     if (!req.file) {
-        return res.status(400).json({ error: "No file uploaded" });
+        res.status(400).json({ error: "No file uploaded" });
+        return;
     }
+
+
     const { buffer } = req.file;
+    const { userId } = req.body;
 
     const bytes = crypto.randomBytes(16);
     const cvName = bytes.toString("hex") + ".pdf";
@@ -57,5 +63,5 @@ router.post("/cv", async function (req,res,next){
     return;
 
 })
-
+module.exports = router;
 
