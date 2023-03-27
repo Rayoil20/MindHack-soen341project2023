@@ -8,6 +8,7 @@
 /back-end/.env
 .pnp.js
 /front-end/MindHack/package.json
+/back-end/uploads
 
 # testing
 /coverage

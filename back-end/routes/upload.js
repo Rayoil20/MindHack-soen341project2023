@@ -5,24 +5,53 @@ const router = express.Router();
 const aws = require("aws-sdk");
 const crypto = require("crypto");
 const multer = require("multer");
+const jwt = require("jsonwebtoken");
 const client = new MongoClient("mongodb+srv://MindHack:MindHack123$@cluster0.sdwjjsx.mongodb.net/test");
-
 const storage = multer.memoryStorage()
 const upload = multer({ storage: storage })
 
-router.post("/cv", upload.single("data"),async function (req,res,next){
 
+async function checkToken (req, res, next) {
+    const token = req.headers["authorization"];
+    let decoded;
 
+    try {
+        decoded = jwt.verify(token, process.env.JWT_ACCESS_KEY);
+    }
+    catch (Error) {
+        res.status(403).json({message:"Token is not valid"});
+        return;
+
+    }
     const db = client.db("MindHack");
 
-    console.log(req.file);
+
+    const doesExist = await db.collection("user").findOne({"email": decoded.email, "password": decoded.password});
+
+    //If the user already exists, send a message
+    if (doesExist) {
+        req.user = doesExist;
+        req.user = req.user._id.toString()
+        next();
+        return;
+    }
+
+    res.status(403).json({message:"Token is not valid"});
+    return;
+
+}
+
+
+router.post("/cv",checkToken ,upload.single("data"),async function (req,res,next){
+
+    const db = client.db("MindHack");
 
     if (!req.file) {
         res.status(400).json({ error: "No file uploaded" });
         return;
     }
 
-
+    console.log(req.user);
     const { buffer } = req.file;
     const { userId } = req.body;
 
@@ -55,7 +84,7 @@ router.post("/cv", upload.single("data"),async function (req,res,next){
         .promise();
 
     await db.collection("user").updateOne(
-        {_id : new ObjectId(userId)},
+        {_id : new ObjectId(req.user._id)},
         {$set: {"cv" : uploadedCV.Location} },
         { upsert: true });
 
