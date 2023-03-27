@@ -18,9 +18,11 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 const authenticate = require("./routes/authenticate");
 const upload = require("./routes/upload");
+const jobs = require("./routes/jobs");
 
 app.use("/authenticate", authenticate);
 app.use("/upload", upload);
+app.use("/job",jobs);
 
 // port
 const port = process.env.PORT || 5000;
