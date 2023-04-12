@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import React, { useState } from "react";
 import Profile from "./profile";
-import {Routes} from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
 import {dividerClasses} from "@mui/material";
 import Navbar from "./components/Navbar";
 import Jobs from "./jobs";
@@ -16,6 +16,7 @@ import Edit_Profile from "./edit_profile";
 import Admin_Manage from "./admin_profile_manage";
 import Employer_Post from "./employer_posting";
 
+import Homepage from "./homepage";
 
 function App() {
   
@@ -36,6 +37,7 @@ function App() {
 
 
            <Route path='/edit_profile' element={<Edit_Profile/>}/>
+           <Route path='/job' element={<Jobs/>}/>
        </Routes>
       </div>
   );
