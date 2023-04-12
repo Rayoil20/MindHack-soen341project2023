@@ -33,6 +33,7 @@ export default function Navbar()  {
                     <Button color="inherit"> <NavLink to={"/employer_post"}>Employer Post</NavLink> </Button>
 
 
+
                 </Toolbar>
             </AppBar>
         </Box>

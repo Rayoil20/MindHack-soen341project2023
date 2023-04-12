@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import React, { useState } from "react";
 import Profile from "./profile";
-import {Route,Routes} from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
 import {dividerClasses} from "@mui/material";
 import Navbar from "./components/Navbar";
 import Jobs from "./jobs";
@@ -26,10 +26,6 @@ function App() {
            <Route path='/upload' element={<Upload/>}/>
            <Route path='/admin_manage' element={<Admin_Manage/>}/>
            <Route path="/employer_post" element={<Employer_Post/>}/>
-           <Route path='/jobs' element={<Jobs/>}/>
-           <Route path='/employer_post' element={<Employer_Post/>}/>
-
-
            <Route path='/edit_profile' element={<Edit_Profile/>}/>
        </Routes>
       </div>
