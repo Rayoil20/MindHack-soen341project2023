@@ -1,11 +1,15 @@
 import logo from './logo.svg';
 import React, { useState } from "react";
 import Profile from "./profile";
-import {Route, Routes} from "react-router-dom";
+import {Routes} from "react-router-dom";
 import {dividerClasses} from "@mui/material";
 import Navbar from "./components/Navbar";
 import Jobs from "./jobs";
-import Homepage from "./homepage";
+import Homepage from "./jobs";
+import Employer_Post from "./employer_posting";
+import {BrowserRouter} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+
 
 function App() {
   
@@ -17,7 +21,10 @@ function App() {
        <Routes>
            <Route path='/' element={<Homepage/>}/>
            <Route path='/profile' element={<Profile/>}/>
-           <Route path='/job' element={<Jobs/>}/>
+           <Route path='/jobs' element={<Jobs/>}/>
+           <Route path='/employer_post' element={<Employer_Post/>}/>
+
+
        </Routes>
       </div>
   );
