@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import './jobs.css'; // import the stylesheet
+import './jobs.css';
+import Navbar from "./components/Navbar"; // import the stylesheet
 // import EmployerPosting from './employer_posting';
 
 const exampleJobs = [
