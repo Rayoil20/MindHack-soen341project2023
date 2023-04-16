@@ -1,7 +1,7 @@
 import './jobs.css'; // import the stylesheet
 import React, { useState } from 'react';
 
-function employer_posting({ onPost }) {
+function Employer_posting({ onPost }) {
     const [jobTitle, setJobTitle] = useState('');
     const [jobDescription, setJobDescription] = useState('');
     const [jobLocation, setJobLocation] = useState('');
@@ -67,4 +67,4 @@ function employer_posting({ onPost }) {
     );
 }
 
-export default employer_posting;
+export default Employer_posting;

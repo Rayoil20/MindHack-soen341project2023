@@ -16,7 +16,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 function Copyright(props) {
     return (
         <Typography variant="body2" color="text.secondary" align="center" {...props}>
-            {'Copyright Â© '}
+            {'Copyright © '}
             <Link color="inherit" href="localhost:3000">
                 MindHack
             </Link>{' '}
@@ -93,9 +93,9 @@ export default function SignIn() {
                                 </Link>
                             </Grid>
                             <Grid item>
-                                <Link href="#" variant="body2">
+                                <a href="/signup">
                                     {"Don't have an account? Sign Up"}
-                                </Link>
+                                </a>
                             </Grid>
                         </Grid>
                     </Box>
