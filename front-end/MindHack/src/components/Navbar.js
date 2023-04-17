@@ -1,13 +1,25 @@
-import React from "react";
+import React, {useEffect} from "react";
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
-import {NavLink} from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
+import { withCookies, Cookies } from 'react-cookie';
+import {useCookies} from "react-cookie"; // Import the CSS file for styles
 
 export default function Navbar()  {
+
+    const [cookies, setCookie, removeCookie] = useCookies(['token']);
+    const navigate = useNavigate();
+
+    const logout = () =>{
+        removeCookie("token");
+        removeCookie("category");
+        navigate("/");
+    }
+
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
@@ -25,14 +37,11 @@ export default function Navbar()  {
                     </Typography>
                     <Button color="inherit"> <NavLink to={"/job"}>New job </NavLink></Button>
                     <Button color="inherit"> <NavLink to={"/"}>Home page </NavLink></Button>
-                    <Button color="inherit"> <NavLink to={"/login"}>Login</NavLink></Button>
                     <Button color="inherit"> <NavLink to={"/profile"}>Profile</NavLink></Button>
-                    <Button color="inherit"> <NavLink to={"/employer_post"}>Employee post</NavLink></Button>
+                    {cookies.category === "employer" || cookies.category === "admin" && <Button color="inherit"> <NavLink to={"/employer_post"}>Employee post</NavLink></Button>}
                     {/*<Button color="inherit"> <NavLink to={"/Appp"}>Appp</NavLink></Button>*/}
-                    <Button color="inherit"> <NavLink to={"/admin_manage"}>AdManage</NavLink></Button>
-                    <Button color="inherit"> <NavLink to={"/employer_post"}>Employer Post</NavLink> </Button>
-
-
+                    {cookies.category === "admin" && <Button color="inherit"> <NavLink to={"/admin_manage"}>AdManage</NavLink></Button>}
+                    {cookies.token ? <Button color="inherit" onClick={logout}>Logout</Button> : <Button color="inherit"> <NavLink to={"/login"}>Login</NavLink></Button> }
 
                 </Toolbar>
             </AppBar>
