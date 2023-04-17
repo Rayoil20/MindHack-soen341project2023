@@ -12,6 +12,8 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import {useCookies} from "react-cookie";
+import {useNavigate} from "react-router-dom";
 
 function Copyright(props) {
     return (
@@ -29,13 +31,23 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignIn() {
-    const handleSubmit = (event) => {
+    const [cookies, setCookie, removeCookie] = useCookies(['token']);
+    const navigate = useNavigate();
+
+    const handleSubmit = async (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
-        console.log({
-            email: data.get('email'),
-            password: data.get('password'),
-        });
+        const request = {
+            method: "POST",
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({"email": data.get("email"), "password": data.get("password")})
+        }
+        let res = await fetch("http://localhost:5000/authenticate/login",request);
+        res = await res.json();
+        const token = res.token;
+        setCookie('token',token,{ path: '/' });
+        setCookie("category",res.type,{path :'/'});
+        navigate("/");
     };
 
     return (

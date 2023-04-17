@@ -44,10 +44,9 @@ router.post("/login", async function (req,res,next){
     const db = client.db("MindHack");
 
     const user = await db.collection("user").findOne({"email": email, "password" : password});
-
     if (user){
         const token = jwt.sign({"email": email, "password" : password}, process.env.JWT_ACCESS_KEY);
-        res.send({token: token}).json;
+        res.send({token: token, type:user.type}).json;
         return;
     }
 

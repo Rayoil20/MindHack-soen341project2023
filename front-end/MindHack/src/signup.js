@@ -1,12 +1,23 @@
 import React, { useState } from 'react';
-import './SignupPage.css'; // Import the CSS file for styles
+import './SignupPage.css';
+import {useCookies} from "react-cookie"; // Import the CSS file for styles
+import {useNavigate} from "react-router-dom";
+import Select from 'react-select'
 
 const SignupPage = () => {
+
+    const [cookies, setCookie, removeCookie] = useCookies(['token']);
+    const navigate = useNavigate();
+    const options =   [{ value: 'student', label: 'student' },
+        { value: 'employer', label: 'employer' }]
+
+
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         password: '',
-        role: ''
+        type: '',
+        lastname:''
     });
 
     const handleChange = (event) => {
@@ -14,15 +25,29 @@ const SignupPage = () => {
         setFormData({ ...formData, [name]: value });
     };
 
-    const handleSubmit = (event) => {
+    const handleTypeChange = (value) =>{
+        formData.type = value.value;
+    }
+
+    const handleSubmit = async (event) => {
         event.preventDefault();
         console.log('Form data submitted:', formData);
-        setFormData({
-            name: '',
-            email: '',
-            password: '',
-            role: ''
-        });
+        const request = {
+            method: "POST", headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                "email": formData.email,
+                "name": formData.name,
+                "password": formData.password,
+                "type": formData.type,
+                "lastname": formData.lastname
+            })
+        }
+        let res = await fetch("http://localhost:5000/authenticate/register", request);
+        res = await res.json();
+        const token = res.token;
+        setCookie('token', token, {path: '/'});
+        setCookie("category",formData.type,{path:"/"});
+        navigate("/");
     };
 
     return (
@@ -35,6 +60,16 @@ const SignupPage = () => {
                         type="text"
                         name="name"
                         value={formData.name}
+                        onChange={handleChange}
+                        className="form-input"
+                    />
+                </label>
+                <label>
+                    Last Name:
+                    <input
+                        type="text"
+                        name="lastname"
+                        value={formData.lastname}
                         onChange={handleChange}
                         className="form-input"
                     />
@@ -61,18 +96,9 @@ const SignupPage = () => {
                 </label>
                 <label>
                     Role:
-                    <select
-                        name="role"
-                        value={formData.role}
-                        onChange={handleChange}
-                        className="form-input"
-                    >
-                        <option value="">--Select Role--</option>
-                        <option value="student">Student</option>
-                        <option value="employer">Employer</option>
-                    </select>
+                    <Select options={options} onChange = {value => handleTypeChange(value)}   ></Select>
                 </label>
-                <button type="submit" className="form-button">Sign up</button>
+                <button type="submit" className="form-button mt-5 pt-5">Sign up</button>
             </form>
         </div>
     );
