@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import './jobs.css';
-import Navbar from "./components/Navbar"; // import the stylesheet
+import {set} from "mongoose";
+import Button from "@mui/material/Button";
 // import EmployerPosting from './employer_posting';
 
 const exampleJobs = [
@@ -88,6 +89,9 @@ function JobOffer({ job }) {
             <h2>{job.title}</h2>
             <p>{job.description}</p>
             <p>{job.location}</p>
+            <p>{job.salary}</p>
+            <p>{job.type}</p>
+            <Button variant="contained">Apply</Button>
         </div>
     );
 }
@@ -120,11 +124,22 @@ function SearchBar({ onSearch }) {
 
 
 function App() {
-    const [filteredJobs, setFilteredJobs] = useState(exampleJobs);
-    const [jobPosts, setJobPosts] = useState([]);
+    const [filteredJobs, setFilteredJobs] = useState([]);
+    const [everyJob,setEveryJob] = useState([]);
+
+    const fetchJobs = async () =>{
+        let res = await fetch('http://localhost:5000/job', {method: 'GET'});
+        res = res.json();
+        return res
+    }
+
+    useEffect(() => {
+        fetchJobs().then(r => setFilteredJobs(r));
+    }, []);
 
     const handleSearch = (query) => {
-        const filtered = exampleJobs.filter((job) => {
+        fetchJobs().then(r => setEveryJob(r));
+        const filtered = everyJob.filter((job) => {
             return (
                 job.title.toLowerCase().includes(query.toLowerCase()) ||
                 job.description.toLowerCase().includes(query.toLowerCase()) ||
@@ -134,11 +149,6 @@ function App() {
         setFilteredJobs(filtered);
     };
 
-    // const handleJobPost = (newJob) => {
-    //     const newJobPosts = [...jobPosts, newJob];
-    //     setJobPosts(newJobPosts);
-    //     setFilteredJobs([...filteredJobs, newJob]);
-    // };
     const handleJobPost = (newJob) => {
         const newFilteredJobs = [...filteredJobs, newJob];
         setFilteredJobs(newFilteredJobs);
@@ -149,7 +159,8 @@ function App() {
         <div>
             <h1>Job Offers</h1>
             <SearchBar onSearch={handleSearch} />
-            <JobList jobs={filteredJobs} />
+            {filteredJobs.length > 0 ? (<JobList jobs={filteredJobs} />) : (<h1>No jobs have been found</h1>)}
+
             {/*<EmployerPosting onJobPost={handleJobPost} />*/}
         </div>
 

@@ -11,7 +11,8 @@ import {useCookies} from "react-cookie"; // Import the CSS file for styles
 
 export default function Navbar()  {
 
-    const [cookies, setCookie, removeCookie] = useCookies(['token']);
+    const [cookies, setCookie, removeCookie] = useCookies(['token','category']);
+
     const navigate = useNavigate();
 
     const logout = () =>{
@@ -38,13 +39,13 @@ export default function Navbar()  {
                     <Button color="inherit"> <NavLink to={"/job"}>New job </NavLink></Button>
                     <Button color="inherit"> <NavLink to={"/"}>Home page </NavLink></Button>
                     <Button color="inherit"> <NavLink to={"/profile"}>Profile</NavLink></Button>
-                    {cookies.category === "employer" || cookies.category === "admin" && <Button color="inherit"> <NavLink to={"/employer_post"}>Employee post</NavLink></Button>}
-                    {/*<Button color="inherit"> <NavLink to={"/Appp"}>Appp</NavLink></Button>*/}
+                    {cookies.category === "employer" && <Button color="inherit"> <NavLink to={"/employer_post"}>Employee post</NavLink></Button>}
+                    {cookies.category === "admin" && <Button color="inherit"> <NavLink to={"/employer_post"}>Employee post</NavLink></Button>}
                     {cookies.category === "admin" && <Button color="inherit"> <NavLink to={"/admin_manage"}>AdManage</NavLink></Button>}
                     {cookies.token ? <Button color="inherit" onClick={logout}>Logout</Button> : <Button color="inherit"> <NavLink to={"/login"}>Login</NavLink></Button> }
 
-                </Toolbar>
-            </AppBar>
-        </Box>
+                    </Toolbar>
+                </AppBar>
+            </Box>
     )
 }

@@ -26,7 +26,7 @@ async function checkToken (req, res, next) {
     //If the user already exists, send a message
     if (doesExist) {
         req.user = doesExist;
-        req.user = req.user._id.toString()
+        req.user._id = req.user._id.toString()
         next();
         return;
     }
@@ -41,7 +41,7 @@ router.get("/",async function (req,res,next){
 
     const db = client.db("MindHack");
 
-    const jobs = await db.collection("jobs").find({}).toArray();
+    const jobs = await db.collection("Jobs").find({}).toArray();
 
     res.status(200).json(jobs);
     return;
@@ -56,22 +56,19 @@ router.post("/",checkToken,async function (req,res,next){
     const type = req.body.type;
     const userid = req.user._id;
 
-    if ( (title == undefined) || (description == undefined) || (location == undefined) || (type == undefined) || (salary == undefined) || (owner == undefined)){
+    if ( (title == undefined)  (description == undefined)  (location == undefined)  (type == undefined)  (salary == undefined) || (userid == undefined)){
         res.status(400).json({ message: 'BAD REQUEST' });
         return;
     }
 
     const db = client.db("MindHack");
 
-    const job = await db.collection("job").insertOne({"title":title,"description":description,"location":location,"salary":salary,"type":type,"userid":userid});
+    const job = await db.collection("Jobs").insertOne({"title":title,"description":description,"location":location,"salary":salary,"type":type,"userid":userid});
 
-    res.send(200).json({"message" : "Job uploaded"})
+    res.status(200).json({"message" : "Job uploaded"})
     return;
 
 });
-
-
-
 
 
 module.exports = router;
